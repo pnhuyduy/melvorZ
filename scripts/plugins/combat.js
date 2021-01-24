@@ -90,6 +90,9 @@
         `
       })
 
+      const prevMinLevel = localStorage.getItem("MelvorZ.AutoSlayerTask.MinLevel") || 0
+      const prevMaxLevel = localStorage.getItem("MelvorZ.AutoSlayerTask.MaxLevel") || 100
+
       const content = `
     <div class="col-12">
       <div class="form-group">
@@ -102,7 +105,7 @@
                               Min
                           </span>
                       </div>
-                      <input type="number" class="form-control" id="slayerTaskMinHPLvl" name="slayerTaskMinHPLvl" value="0">
+                      <input type="number" class="form-control" id="slayerTaskMinHPLvl" name="slayerTaskMinHPLvl" value="${prevMinLevel}">
                   </div>
               </div>
               <div class="col-6">
@@ -112,7 +115,7 @@
                               Max
                           </span>
                       </div>
-                      <input type="number" class="form-control" id="slayerTaskMaxHPLvl" name="slayerTaskMaxHPLvl" value="100">
+                      <input type="number" class="form-control" id="slayerTaskMaxHPLvl" name="slayerTaskMaxHPLvl" value="${prevMaxLevel}">
                   </div>
               </div>
           </div>
@@ -128,9 +131,19 @@
       </div>
     </div>
       `
+
       const parentEl = $("#combat-slayer-task-container").find(".row.no-gutters")
       parentEl.append(content)
       const buttonToggle = $("#startFindingTask")
+
+      // Input min max on change value
+      $("#slayerTaskMinHPLvl").on("input", (e) => {
+        localStorage.setItem("MelvorZ.AutoSlayerTask.MinLevel", e.target.value)
+      })
+
+      $("#slayerTaskMaxHPLvl").on("input", (e) => {
+        localStorage.setItem("MelvorZ.AutoSlayerTask.MaxLevel", e.target.value)
+      })
 
       const autoFindSlayerTask = () => {
         if (newEnemyLoading) return
