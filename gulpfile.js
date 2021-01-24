@@ -21,4 +21,8 @@ function reload() {
 
 exports.clean = clean
 const copy = parallel(copyScripts, copyManifest)
-exports.default = reload
+const build = series(clean, copy)
+
+exports.build = build
+exports.watch = reload
+exports.default = build

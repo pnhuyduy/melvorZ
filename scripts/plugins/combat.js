@@ -141,7 +141,7 @@
         const currentEnemyHP = getHitPoints(currentEnemyID)
         let slayerTaskEnemyID, slayerTaskEnemyHP
 
-        slayerTaskEnemyID = slayerTask[tier].monsterID
+        slayerTaskEnemyID = slayerTask[0].monsterID
         slayerTaskEnemyHP = getHitPoints(slayerTaskEnemyID)
         addHitpointsContent()
         if (isInCombat && currentEnemyID !== slayerTaskEnemyID) {

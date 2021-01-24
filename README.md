@@ -13,7 +13,11 @@ yarn install
 # Hot reload with Gulp
 
 ```
-gulp
+// Build
+gulp build
+
+// Hot reload
+gulp watch
 ```
 
 Output on `dist` folder
