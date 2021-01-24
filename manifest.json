@@ -1,0 +1,17 @@
+{
+  "name": "Melvor Z",
+  "description": "Scripting for Melvor Idle",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://melvoridle.com/*",
+        "*://www.melvoridle.com/*",
+        "*://test.melvoridle.com/*"
+      ],
+      "js": ["scripts/main.js"]
+    }
+  ],
+  "web_accessible_resources": ["scripts/*.js", "scripts/plugins/*.js"]
+}
